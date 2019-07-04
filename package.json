@@ -1,0 +1,38 @@
+{
+	"name": "express-mixin",
+	"description": "Dependencies for a Node.js Express Web app project",
+	"version": "0.0.0",
+	"main": "src/app",
+	"scripts": {
+		"build": "npm i && grunt",
+		"buildw": "npm i & grunt",
+		"buildx": "npm i && grunt && npm start",
+		"buildwx": "npm i & grunt & npm start",
+		"clean": "rm -rf node_modules && rm -f package-lock.json",
+		"cleanw": "rmdir /Q /S node_modules & del package-lock.json",
+		"rebuild": "npm run clean & npm run build",
+		"rebuildw": "npm run cleanw & npm run buildw",
+		"lint": "grunt eslint",
+		"start": "nodemon src/start",
+		"test": "grunt"
+	},
+	"dependencies": {
+		"app-root-path": "^2.2.1",
+		"babel-mixin": "file:../babel-mixin/babel-mixin-0.0.2.tgz",
+		"body-parser": "^1.19.0",
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"nodemon": "^1.19.1",
+		"thaw-common-utilities.js": "file:../common-utilities.js/thaw-common-utilities.js-0.0.20.tgz"
+	},
+	"devDependencies": {},
+	"engineStrict": true,
+	"engines": {
+		"node": ">= 8"
+	},
+	"keywords": [
+		"Express.js"
+	],
+	"author": "Tom Weatherhead <null@2hrd4u.org> (https://httpbin.org/status/418)",
+	"license": "MIT"
+}
