@@ -1,3 +1,8 @@
+/static/
+.eslintrc
+.travis.yml
+Gruntfile.js
+src/start.js
 # Logs
 logs
 *.log
