@@ -18,12 +18,23 @@ app.disable('etag'); // TODO 2018-12-14 : Remove this, if possible.
 module.exports = {
 	// getApp: () => app,
 	// getAppRootPath: () => require('app-root-path'), // ?
-	createRouter: () => express.Router(),				// eslint-disable-line new-cap
-	addRouter: (path, router) => app.use(path, router),
+	// createRouter: () => express.Router(),				// eslint-disable-line new-cap
+	// addRouter: (path, router) => app.use(path, router),
 	// See https://expressjs.com/en/4x/api.html#express.static
 	addStatic: staticPath => app.use(express.static(staticPath)),
+	createAndUseRouter: (path, fnInitRouter) => {
+		const router = express.Router();				// eslint-disable-line new-cap
+
+		fnInitRouter(router);
+		app.use(path, router);
+	},
 	// The startServer function returns the server object.
-	startServer: serverListenPort => {
+	startServer: (serverListenPort, serverName, fnOnInit) => {
+
+		if (fnOnInit) {
+			fnOnInit();
+		}
+
 		const defaultServerListenPort = 80;
 		const server = app.listen(serverListenPort || defaultServerListenPort, () => {
 			let host = server.address().address;
@@ -32,7 +43,7 @@ module.exports = {
 				host = 'localhost';
 			}
 
-			console.log('The Express.js server is listening at http://%s:%s (protocol %s)', host, server.address().port, server.address().family);
+			console.log('The %s is listening at http://%s:%s (protocol %s)', serverName || 'Express.js server', host, server.address().port, server.address().family);
 		});
 
 		return server;
