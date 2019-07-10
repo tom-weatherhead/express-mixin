@@ -8,18 +8,13 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(bodyParser.json());	// We intend to receive JSON requests.
 app.use(cors());
 
-app.disable('etag'); // TODO 2018-12-14 : Remove this, if possible.
-
-// require('rootpath')(); // Or use the npm package app-root-path
+// app.disable('etag'); // TODO 2018-12-14 : Remove this, if possible. Removing it may cause problems e.g. in Docker apps or from iOS clients.
 
 module.exports = {
-	// getApp: () => app,
-	// getAppRootPath: () => require('app-root-path'), // ?
-	// createRouter: () => express.Router(),				// eslint-disable-line new-cap
-	// addRouter: (path, router) => app.use(path, router),
+	getAppRootPath: () => require('app-root-path').path, // ? Or require('rootpath')(); ?
 	// See https://expressjs.com/en/4x/api.html#express.static
 	addStatic: staticPath => app.use(express.static(staticPath)),
 	createAndUseRouter: (path, fnInitRouter) => {
@@ -28,7 +23,6 @@ module.exports = {
 		fnInitRouter(router);
 		app.use(path, router);
 	},
-	// The startServer function returns the server object.
 	startServer: (serverListenPort, serverName, fnOnInit) => {
 
 		if (fnOnInit) {

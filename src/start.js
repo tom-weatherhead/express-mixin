@@ -10,11 +10,13 @@ require('babel-mixin')({
 	includeRegeneratorRuntime: true
 });
 
-// Import the rest of our application.
+// Import the rest of your application from e.g. ./server.js :
 require('./server');
  */
 
 const expressMixin = require('..');
+
+// console.log('App root is', expressMixin.getAppRootPath());
 
 expressMixin.addStatic('static');
 expressMixin.startServer(80);
