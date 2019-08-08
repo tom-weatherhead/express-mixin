@@ -32,7 +32,7 @@
 		"nodemon": "^1.19.1"
 	},
 	"devDependencies": {
-		"babel-mixin": "^0.0.3"
+		"babel-mixin": "^0.0.4"
 	},
 	"engineStrict": true,
 	"engines": {
