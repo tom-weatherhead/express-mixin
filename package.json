@@ -1,7 +1,7 @@
 {
 	"name": "express-mixin",
 	"description": "Dependencies for a Node.js Express Web app project",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/tom-weatherhead/express-mixin.git"
@@ -10,29 +10,33 @@
 	"bugs": {
 		"url": "https://github.com/tom-weatherhead/express-mixin/issues"
 	},
-	"main": "src/main",
+	"main": "src/main.js",
+	"files": [
+		"src/main.js"
+	],
 	"scripts": {
+		"all": "npm run rebuild",
 		"build": "npm i && grunt",
 		"buildw": "npm i & grunt",
 		"buildx": "npm i && grunt && npm start",
 		"buildwx": "npm i & grunt & npm start",
 		"clean": "rm -rf node_modules && rm -f package-lock.json",
 		"cleanw": "rmdir /Q /S node_modules & del package-lock.json",
-		"rebuild": "npm run clean & npm run build",
+		"rebuild": "npm run clean && npm run build",
 		"rebuildw": "npm run cleanw & npm run buildw",
 		"lint": "grunt eslint",
 		"start": "nodemon src/start",
 		"test": "grunt"
 	},
 	"dependencies": {
-		"app-root-path": "^2.2.1",
+		"app-root-path": "^3.0.0",
 		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
-		"nodemon": "^1.19.1"
+		"nodemon": "^1.19.4"
 	},
 	"devDependencies": {
-		"babel-mixin": "^0.0.4"
+		"babel-mixin": "^0.0.8"
 	},
 	"engineStrict": true,
 	"engines": {
