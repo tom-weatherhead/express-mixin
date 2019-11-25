@@ -1,7 +1,7 @@
 {
 	"name": "express-mixin",
 	"description": "Dependencies for a Node.js Express Web app project",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/tom-weatherhead/express-mixin.git"
@@ -33,10 +33,10 @@
 		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
-		"nodemon": "^1.19.4"
+		"nodemon": "^2.0.1"
 	},
 	"devDependencies": {
-		"babel-mixin": "^0.0.8"
+		"babel-mixin": "^0.0.9"
 	},
 	"engineStrict": true,
 	"engines": {
